@@ -123,32 +123,6 @@ client.on('message', message => { // Leaked by [ @M3a4x ]
 });
 
 
-  const math = require('math-expression-evaluator');
-const stripIndents = require('common-tags').stripIndents;
-
-client.on('message', msg => { // Leaked by [ @M3a4x ]
- if (msg.content.startsWith(prefix + 'cal')) {
-    let args = msg.content.split(" ").slice(1);
-        const question = args.join(' ');
-    if (args.length < 1) {
-        msg.reply('**من فضلك .. قم بكتابة سؤال **.');
-} else {    let answer;
-    try {
-        answer = math.eval(question);
-    } catch (err) {
-        return msg.reply(`Error: ${err}`);
-    }
-
-    const embed = new Discord.RichEmbed()
-    .addField("**Question ❓ **: ",`**${question}**`, true)
-    .addField("**◾**  ",`**${answer}**`, true)
-    .setFooter("Legends Bot Calculator ")
-    msg.channel.send(embed)
-    }
-};
-});
-
-
 const moment = require('moment');
 
 client.on("guildMemberAdd", member => { // Leaked by [ @M3a4x ]
